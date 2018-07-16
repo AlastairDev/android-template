@@ -4,30 +4,58 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
-    compileSdkVersion 28
+    compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "com.tess.android_template"
-        minSdkVersion 19
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        applicationId rootProject.ext.applicationId
+        minSdkVersion rootProject.ext.minSdkVersionMobile
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
     }
+
     buildTypes {
         release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
             minifyEnabled false
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    dataBinding {
+        enabled = true
+    }
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.0.0-alpha1'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.0-alpha3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha3'
+    //Kotlin
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.2.51"
+    implementation 'org.koin:koin-android-architecture:0.9.3'
+
+    //Support libs
+    implementation "com.android.support:appcompat-v7:$rootProject.supportLibVersion"
+    implementation "com.android.support:recyclerview-v7:$rootProject.supportLibVersion"
+    implementation "com.android.support:design:$rootProject.supportLibVersion"
+    implementation "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVersion"
+
+    // Architecture Components
+    implementation "android.arch.persistence.room:runtime:$rootProject.roomVersion"
+    annotationProcessor "android.arch.persistence.room:compiler:$rootProject.roomVersion"
+    kapt "android.arch.persistence.room:compiler:$rootProject.roomVersion"
+    implementation "android.arch.lifecycle:extensions:$rootProject.archLifecycleVersion"
+    annotationProcessor "android.arch.lifecycle:compiler:$rootProject.archLifecycleVersion"
+
+    //Lib for testing
+    testImplementation "junit:junit:$rootProject.jUnitVersion"
+    androidTestImplementation "com.android.support.test:runner:$rootProject.testRunnerVersion"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion"
 }
