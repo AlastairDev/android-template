@@ -10,13 +10,14 @@ import org.koin.dsl.module.Module
 import org.koin.dsl.module.applicationContext
 
 class App : Application(){
+
     override fun onCreate() {
         super.onCreate()
         startKoin(this, listOf(myModule))
     }
-}
 
-val myModule : Module = applicationContext {
-    viewModel { TestViewModel(get()) }
-    bean { MyRepository() as Repository }
+    private val myModule : Module = applicationContext {
+        viewModel { TestViewModel(get()) }
+        bean { MyRepository() as Repository }
+    }
 }

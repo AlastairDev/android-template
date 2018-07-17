@@ -5,8 +5,11 @@ import android.databinding.ObservableField
 import com.tess.android_template.repository.Repository
 
 class TestViewModel(private val repository : Repository) : ViewModel(){
-    var field = ObservableField<String>("test")
+
+    var testfield = ObservableField<String>("test")
+
     fun sayHello(){
-        field.set(repository.giveHello())
+        testfield.set(repository.giveHello())
     }
+
 }
