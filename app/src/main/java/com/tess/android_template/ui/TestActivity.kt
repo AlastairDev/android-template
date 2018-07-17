@@ -4,6 +4,7 @@ import com.tess.android_template.R
 import com.tess.android_template.base.BaseActivity
 import com.tess.android_template.databinding.ActivityMainBinding
 import com.tess.android_template.ext.logE
+import com.tess.android_template.ext.toastL
 
 class TestActivity : BaseActivity<TestViewModel, ActivityMainBinding>(R.layout.activity_main, TestViewModel::class) {
 
@@ -11,6 +12,7 @@ class TestActivity : BaseActivity<TestViewModel, ActivityMainBinding>(R.layout.a
         binding.viewModel = viewModel
         viewModel.sayHello()
         logE("test")
+        toastL("test")
     }
 
 }

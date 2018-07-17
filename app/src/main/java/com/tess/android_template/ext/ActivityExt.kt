@@ -7,14 +7,8 @@ import android.widget.Toast
 import com.tess.android_template.App
 import com.tess.android_template.LogLevel
 
-fun Activity.toast(message: CharSequence, isLong: Boolean = true) {
-    if (isLong) {
-        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
-    } else {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-    }
-}
-
+fun Activity.toastL(message: CharSequence, isLong: Boolean = true) = Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+fun Activity.toastS(message: CharSequence, isLong: Boolean = true) = Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 
 inline fun Activity.alertDialog(body: AlertDialog.Builder.() -> AlertDialog.Builder): AlertDialog {
     return AlertDialog.Builder(this).body().show()
