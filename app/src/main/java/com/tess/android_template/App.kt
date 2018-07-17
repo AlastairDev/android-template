@@ -11,6 +11,10 @@ import org.koin.dsl.module.applicationContext
 
 class App : Application(){
 
+    companion object {
+        var liveCycleLogLevel = LogLevel.NONE
+    }
+
     override fun onCreate() {
         super.onCreate()
         startKoin(this, listOf(myModule))
@@ -20,4 +24,8 @@ class App : Application(){
         viewModel { TestViewModel(get()) }
         bean { MyRepository() as Repository }
     }
+}
+
+enum class LogLevel{
+    E,D,V,W,I,NONE
 }
