@@ -1,6 +1,6 @@
-package com.tess.android_template.ext
+package com.tess.androidTemplate.ext
 
-import android.support.annotation.LayoutRes
+import androidx.annotation.LayoutRes
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

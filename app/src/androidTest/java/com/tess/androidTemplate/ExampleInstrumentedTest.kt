@@ -1,4 +1,4 @@
-package com.tess.android_template
+package com.tess.androidTemplate
 
 import androidx.test.InstrumentationRegistry
 import androidx.test.runner.AndroidJUnit4

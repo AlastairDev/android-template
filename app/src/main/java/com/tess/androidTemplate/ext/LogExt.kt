@@ -1,4 +1,4 @@
-package com.tess.android_template.ext
+package com.tess.androidTemplate.ext
 
 import android.util.Log
 

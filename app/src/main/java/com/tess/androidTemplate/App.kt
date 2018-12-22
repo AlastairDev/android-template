@@ -1,13 +1,13 @@
-package com.tess.android_template
+package com.tess.androidTemplate
 
 import android.app.Application
-import com.tess.android_template.repository.MyRepository
-import com.tess.android_template.repository.Repository
-import com.tess.android_template.ui.TestViewModel
-import org.koin.android.architecture.ext.viewModel
+import com.tess.androidTemplate.repository.MyRepository
+import com.tess.androidTemplate.repository.Repository
+import com.tess.androidTemplate.ui.TestViewModel
 import org.koin.android.ext.android.startKoin
+import org.koin.androidx.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.Module
-import org.koin.dsl.module.applicationContext
+import org.koin.dsl.module.module
 
 class App : Application(){
 
@@ -20,9 +20,9 @@ class App : Application(){
         startKoin(this, listOf(myModule))
     }
 
-    private val myModule : Module = applicationContext {
+    private val myModule : Module = module {
         viewModel { TestViewModel(get()) }
-        bean { MyRepository() as Repository }
+        single { MyRepository() as Repository }
     }
 }
 

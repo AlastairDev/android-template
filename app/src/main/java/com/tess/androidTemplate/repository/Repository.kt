@@ -1,4 +1,4 @@
-package com.tess.android_template.repository
+package com.tess.androidTemplate.repository
 
 interface Repository {
     fun giveHello(): String

@@ -1,17 +1,12 @@
-package com.tess.android_template.base
+package com.tess.androidTemplate.base
 
-import android.arch.lifecycle.ViewModel
-import android.databinding.DataBindingUtil
-import android.databinding.ViewDataBinding
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import com.tess.android_template.ext.logLC
-import kotlin.reflect.KClass
-import org.koin.android.architecture.ext.viewModelByClass
+import androidx.appcompat.app.AppCompatActivity
+import com.tess.androidTemplate.ext.logLC
 
-abstract class BaseActivity<VM : ViewModel, DB : ViewDataBinding>(var layoutId: Int,var clazz: KClass<VM>) : AppCompatActivity() {
-
-    val viewModel: VM by viewModelByClass(true, clazz)
+abstract class BaseActivity<DB : ViewDataBinding>(private var layoutId: Int) : AppCompatActivity() {
 
     lateinit var binding: DB
 

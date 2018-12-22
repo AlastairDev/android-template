@@ -1,7 +1,7 @@
-package com.tess.android_template.ext
+package com.tess.androidTemplate.ext
 
-import android.support.v4.app.Fragment
-import android.support.v7.app.AlertDialog
+import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AlertDialog
 import android.widget.Toast
 
 fun Fragment.toastL(message: CharSequence, duration: Int = Toast.LENGTH_SHORT) = activity?.toastL(message)
