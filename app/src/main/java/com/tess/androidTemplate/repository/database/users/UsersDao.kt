@@ -7,16 +7,15 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
 @Dao
-interface PlantDao {
-    @Query("SELECT * FROM plants ORDER BY name")
-    fun getPlants(): LiveData<List<Plant>>
+interface UsersDao {
 
-    @Query("SELECT * FROM plants WHERE growZoneNumber = :growZoneNumber ORDER BY name")
-    fun getPlantsWithGrowZoneNumber(growZoneNumber: Int): LiveData<List<Plant>>
+    @Query("SELECT * FROM users ORDER BY id")
+    fun getUsers(): LiveData<List<UsersModel>>
 
-    @Query("SELECT * FROM plants WHERE id = :plantId")
-    fun getPlant(plantId: String): LiveData<Plant>
+    @Query("SELECT * FROM users WHERE id = :userId")
+    fun getUser(userId: String): LiveData<UsersModel>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(plants: List<Plant>)
+    fun insertAll(userModels: List<UsersModel>)
+
 }

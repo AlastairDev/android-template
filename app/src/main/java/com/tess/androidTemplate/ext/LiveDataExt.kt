@@ -7,14 +7,14 @@ import androidx.lifecycle.Observer
 import androidx.annotation.AnyThread
 import androidx.annotation.MainThread
 
-/**
- * Observe for Activity or Fragment
- */
-inline fun <T> LiveData<T>.observe(owner: LifecycleOwner, crossinline block: (T?) -> Unit) {
-    observe(owner, Observer {
-        block(it)
-    })
-}
+///**
+// * Observe for Activity or Fragment
+// */
+//inline fun <T> LiveData<T>.observe(owner: LifecycleOwner, crossinline block: (T?) -> Unit) {
+//    observe(owner, Observer {
+//        block(it)
+//    })
+//}
 
 /**
  * Observe for Activity or Fragment only when value is not null

@@ -7,23 +7,26 @@
 
         <variable
             name="viewModel"
-            type="com.tess.androidTemplate.ui.TestViewModel" />
+            type="com.tess.androidTemplate.ui.users.UsersViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.TestActivity">
+        tools:context=".ui.users.UserActivity">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/test"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="test"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/userListRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="TEST" />
+            tools:context=".ui.users.UserActivity"
+            tools:listitem="@layout/item_user" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -4,9 +4,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.LifecycleOwner
 import com.tess.androidTemplate.ext.logLC
 
-abstract class BaseActivity<DB : ViewDataBinding>(private var layoutId: Int) : AppCompatActivity() {
+abstract class BaseActivity<DB : ViewDataBinding>(private var layoutId: Int) : AppCompatActivity(), LifecycleOwner {
 
     lateinit var binding: DB
 
@@ -15,7 +16,7 @@ abstract class BaseActivity<DB : ViewDataBinding>(private var layoutId: Int) : A
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         logLC("onCreate")
-        binding = DataBindingUtil.setContentView(this, layoutId) as DB
+        binding = DataBindingUtil.setContentView(this, layoutId)
         initBindingComponent()
     }
 
